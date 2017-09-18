@@ -55,6 +55,7 @@
     "globalMetadata": {},
     "fileMetadata": {},
     "template": [],
+    "exportRawModel": true,
     "dest": "skype-ps"
   }
 }
