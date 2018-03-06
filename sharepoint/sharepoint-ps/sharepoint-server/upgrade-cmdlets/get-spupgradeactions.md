@@ -1,52 +1,70 @@
 ---
-title: "Get-SPUpgradeActions"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 3/9/2015
-ms.audience: ITPro
-ms.topic: article
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: c1361f6d-b788-4559-bf71-ec9c5d9cc844
-
-description: "Returns all upgrade actions."
+external help file: 
+applicable: SharePoint Server 2013, SharePoint Server 2016
+title: Get-SPUpgradeActions
+schema: 2.0.0
 ---
 
 # Get-SPUpgradeActions
 
+## SYNOPSIS
+
 Returns all upgrade actions.
-  
+
+
+
+## SYNTAX
+
 ```
-Get-SPUpgradeActions [-AssignmentCollection <SPAssignmentCollection>]
+Get-SPUpgradeActions [-AssignmentCollection <SPAssignmentCollection>] [<CommonParameters>]
 ```
 
-## Detailed Description
+## DESCRIPTION
+Use the Get-SPUpgradeActions cmdlet to return all upgrade actions (that is, detail on the action name, type, target object type, schema version, and compatibility level) within the farm.
 
-Use the **Get-SPUpgradeActions** cmdlet to return all upgrade actions (that is, detail on the action name, type, target object type, schema version, and compatibility level) within the farm. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-   
-## AutoGenParams
+## EXAMPLES
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-   
-## Example
-
---------------EXAMPLE------------
-  
+### --------------EXAMPLE------------ 
 ```
-Get-SPUpgradeActions
+C:\PS>Get-SPUpgradeActions
 ```
 
 This example returns all upgrade actions within the farm.
-  
+
+## PARAMETERS
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the Stop-SPAssignment command, an out-of-memory scenario can occur.
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS
 

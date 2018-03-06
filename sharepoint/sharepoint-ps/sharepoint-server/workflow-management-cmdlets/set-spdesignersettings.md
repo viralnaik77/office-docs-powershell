@@ -1,77 +1,272 @@
 ---
-title: "Set-SPDesignerSettings"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 3/9/2015
-ms.audience: ITPro
-ms.topic: article
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 697262f1-0abf-42f7-a0eb-6ef36ed52f36
-
-description: "Sets SharePoint Designer 2013 features."
+external help file: 
+applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+title: Set-SPDesignerSettings
+schema: 2.0.0
 ---
 
 # Set-SPDesignerSettings
 
-Sets SharePoint Designer 2013 features.
-  
-```
-Set-SPDesignerSettings [-WebApplication] <SPWebApplicationPipeBind> [-AllowCreateDeclarativeWorkflow <$true | $false>] [-AllowDesigner <$true | $false>] [-AllowMasterPageEditing <$true | $false>] [-AllowRevertFromTemplate <$true | $false>] [-AllowSaveDeclarativeWorkflowAsTemplate <$true | $false>] [-AllowSavePublishDeclarativeWorkflow <$true | $false>] [-AssignmentCollection <SPAssignmentCollection>] [-Confirm [<SwitchParameter>]] [-DesignerDownloadUrl <String>] [-RequiredDesignerVersion <String>] [-ShowURLStructure <$true | $false>] [-WhatIf [<SwitchParameter>]]
+## SYNOPSIS
+Sets SharePoint Designer features.
+
+
+## SYNTAX
 
 ```
-
-## Detailed Description
-
-The **Set-SPDesignerSettings** cmdlet sets SharePoint Designer 2013 features on a specified Web application when the **WebApplicaton** is used. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**WebApplication** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPWebApplicationPipeBind  <br/> |Specifies the Web application in which the settings will apply.  <br/> |
-|**AllowDesigner** <br/> |Optional  <br/> |System.Boolean  <br/> |Specifies whether to allow users to edit sites in a web application by using SharePoint Designer 2013. The default value is **True** <br/> |
-|**AllowMasterPageEditing** <br/> |Optional  <br/> |System.Boolean  <br/> |Specifies whether to allow site administrators to customize master pages and layout pages using SharePoint Designer 2013. The default value is **True**.  <br/> |
-|**AllowRevertFromTemplate** <br/> |Optional  <br/> |System.Boolean  <br/> |Specifies whether to allow site administrators to detach pages from the original site definition using SharePoint Designer 2013. The default value is **True**.  <br/> |
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-|**ShowURLStructure** <br/> |Optional  <br/> |System.Boolean  <br/> |Specifies whether to allow site administrators to manage the URL structure of their Web sites by using SharePoint Designer 2013. The default value is **True**.  <br/> |
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## AutoGenParams
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**WebApplication** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPWebApplicationPipeBind  <br/> ||
-|**AllowCreateDeclarativeWorkflow** <br/> |Optional  <br/> |System.Boolean  <br/> ||
-|**AllowDesigner** <br/> |Optional  <br/> |System.Boolean  <br/> ||
-|**AllowMasterPageEditing** <br/> |Optional  <br/> |System.Boolean  <br/> ||
-|**AllowRevertFromTemplate** <br/> |Optional  <br/> |System.Boolean  <br/> ||
-|**AllowSaveDeclarativeWorkflowAsTemplate** <br/> |Optional  <br/> |System.Boolean  <br/> ||
-|**AllowSavePublishDeclarativeWorkflow** <br/> |Optional  <br/> |System.Boolean  <br/> ||
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**DesignerDownloadUrl** <br/> |Optional  <br/> |System.String  <br/> ||
-|**RequiredDesignerVersion** <br/> |Optional  <br/> |System.String  <br/> ||
-|**ShowURLStructure** <br/> |Optional  <br/> |System.Boolean  <br/> ||
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-   
-## Example
-
--------------------EXAMPLE-------------------- 
-  
+Set-SPDesignerSettings [-WebApplication] <SPWebApplicationPipeBind> [-AllowDesigner <Boolean>]
+ [-AllowMasterPageEditing <Boolean>] [-AllowRevertFromTemplate <Boolean>]
+ [-AssignmentCollection <SPAssignmentCollection>] [-Confirm] [-ShowURLStructure <Boolean>] [-WhatIf]
+ [-AllowCreateDeclarativeWorkflow <Boolean>] [-AllowSaveDeclarativeWorkflowAsTemplate <Boolean>]
+ [-AllowSavePublishDeclarativeWorkflow <Boolean>] [-DesignerDownloadUrl <String>]
+ [-RequiredDesignerVersion <String>] [<CommonParameters>]
 ```
-Set-SPDesignerSettings -WebApplication http://constoso -AllowRevertFromTemplate $False -AllowMasterPageEditing $False
+
+## DESCRIPTION
+The `Set-SPDesignerSettings` cmdlet sets SharePoint Designer features on a specified Web application when the WebApplicaton is used.
+
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
+
+
+## EXAMPLES
+
+### -------------------EXAMPLE--------------------
+```
+C:\PS>Set-SPDesignerSettings -WebApplication http://constoso -AllowRevertFromTemplate $False -AllowMasterPageEditing $False
 ```
 
 This example disables the ability to detach pages from existing site definitions and to edit master pages and page layouts.
-  
-## See also
 
-#### 
 
-[Get-SPDesignerSettings](get-spdesignersettings.md)
+## PARAMETERS
 
+### -WebApplication
+Specifies the Web application in which the settings will apply.
+
+```yaml
+Type: SPWebApplicationPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
+### -AllowDesigner
+Specifies whether to allow users to edit sites in a web application by using SharePoint Designer.
+The default value is True
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AllowMasterPageEditing
+Specifies whether to allow site administrators to customize master pages and layout pages using SharePoint Designer.
+The default value is True.
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AllowRevertFromTemplate
+Specifies whether to allow site administrators to detach pages from the original site definition using SharePoint Designer.
+The default value is True.
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the `Stop-SPAssignment` command, an out-of-memory scenario can occur.
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ShowURLStructure
+Specifies whether to allow site administrators to manage the URL structure of their Web sites by using SharePoint Designer.
+The default value is True.
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Displays a message that describes the effect of the command instead of executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AllowCreateDeclarativeWorkflow
+{{Fill AllowCreateDeclarativeWorkflow Description}}
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AllowSaveDeclarativeWorkflowAsTemplate
+{{Fill AllowSaveDeclarativeWorkflowAsTemplate Description}}
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AllowSavePublishDeclarativeWorkflow
+{{Fill AllowSavePublishDeclarativeWorkflow Description}}
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DesignerDownloadUrl
+{{Fill DesignerDownloadUrl Description}}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RequiredDesignerVersion
+{{Fill RequiredDesignerVersion Description}}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS

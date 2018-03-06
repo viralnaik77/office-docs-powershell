@@ -1,73 +1,128 @@
 ---
-title: "Get-SPStateServiceApplicationProxy"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 3/9/2015
-ms.audience: ITPro
-ms.topic: article
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 4ecf5816-5d8d-4ea6-85dd-7b09770b821f
-
-description: "Returns state service application proxies on the farm."
+external help file: 
+applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+title: Get-SPStateServiceApplicationProxy
+schema: 2.0.0
 ---
 
 # Get-SPStateServiceApplicationProxy
 
+## SYNOPSIS
 Returns state service application proxies on the farm.
-  
+
+## SYNTAX
+
 ```
-Get-SPStateServiceApplicationProxy [[-Identity] <SPStateServiceApplicationProxyPipeBind>] [-AssignmentCollection <SPAssignmentCollection>] [-Confirm [<SwitchParameter>]] [-WhatIf [<SwitchParameter>]]
+Get-SPStateServiceApplicationProxy [[-Identity] <SPStateServiceApplicationProxyPipeBind>]
+ [-AssignmentCollection <SPAssignmentCollection>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-## Detailed Description
+## DESCRIPTION
+The Get-SPStateServiceApplicationProxy cmdlet returns a state service application proxy on the farm.
+If the Identity parameter is not specified, this cmdlet returns the collection of all state service application proxies on the farm.
 
-The **Get-SPStateServiceApplicationProxy** cmdlet returns a state service application proxy on the farm. If the **Identity** parameter is not specified, this cmdlet returns the collection of all state service application proxies on the farm. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Optional  <br/> |Microsoft.Office.Server.Administration.SPStateServiceApplicationProxyPipeBind  <br/> |Specifies the state service application proxy to get.  <br/> The type must be a valid name of a state service application proxy (for example, StateServiceProxy); a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh.  <br/> |
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## AutoGenParams
+## EXAMPLES
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Optional  <br/> |Microsoft.Office.Server.Administration.SPStateServiceApplicationProxyPipeBind  <br/> ||
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-   
-## Example
-
---------------EXAMPLE 1-----------------
-  
+### --------------EXAMPLE 1----------------- 
 ```
-Get-SPStateServiceApplicationProxy
+C:\PS>Get-SPStateServiceApplicationProxy
 ```
 
 This example displays all the state service application proxies on the farm.
-  
---------------EXAMPLE 2-----------------
-  
+
+### --------------EXAMPLE 2----------------- 
 ```
-Get-SPStateServiceApplicationProxy -Identity 81dc50e0-c0f9-4d2c-8284-bb03bb1ea676
+C:\PS>Get-SPStateServiceApplicationProxy -Identity 81dc50e0-c0f9-4d2c-8284-bb03bb1ea676
 ```
 
 This example displays a specific state service application proxy on the farm.
-  
-## See also
 
-#### 
+## PARAMETERS
 
-[New-SPStateServiceApplicationProxy](new-spstateserviceapplicationproxy.md)
-  
-[Set-SPStateServiceApplicationProxy](set-spstateserviceapplicationproxy.md)
+### -Identity
+Specifies the state service application proxy to get.
+
+The type must be a valid name of a state service application proxy (for example, StateServiceProxy); a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh.
+
+```yaml
+Type: SPStateServiceApplicationProxyPipeBind
+Parameter Sets: (All)
+Aliases: Name
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the Stop-SPAssignment command, an out-of-memory scenario can occur.
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Displays a message that describes the effect of the command instead of executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS
 

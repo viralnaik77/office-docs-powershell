@@ -1,73 +1,146 @@
 ---
-title: "Copy-SPAccessServicesDatabaseCredentials"
-ms.author: kirks
-author: Techwriter40
-ms.date: 10/20/2015
-ms.audience: ITPro
-ms.topic: reference
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 83e8dd77-fcfb-4213-98ce-2b8512d0d911
-
-description: "Copies credentials of an application from one logical server to another."
+external help file: 
+applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+title: Copy-SPAccessServicesDatabaseCredentials
+schema: 2.0.0
 ---
 
 # Copy-SPAccessServicesDatabaseCredentials
 
-Copies credentials of an application from one logical server to another.
-  
-```
-Copy-SPAccessServicesDatabaseCredentials -AppUrl <String> -ServerCredential <NetworkCredential> -ServiceContext <SPServiceContextPipeBind> -SourceServer <String> -TargetServer <String> [-AssignmentCollection <SPAssignmentCollection>]
+## SYNOPSIS
+{{Fill in the Synopsis}}
+
+## SYNTAX
 
 ```
-
-## Example
-
-------------EXAMPLE 1------------------
-  
-```
-$appUrl = $app.Url.OriginalString
+Copy-SPAccessServicesDatabaseCredentials [-AppUrl] <String> [-AssignmentCollection <SPAssignmentCollection>]
+ -ServerCredential <NetworkCredential> -ServiceContext <SPServiceContextPipeBind> -SourceServer <String>
+ -TargetServer <String> [<CommonParameters>]
 ```
 
+## DESCRIPTION
+{{Fill in the Description}}
+
+## EXAMPLES
+
+### Example 1 
 ```
-$web = Get-SPWeb $appUrl
+PS C:\> {{ Add example code here }}
 ```
 
-```
-$site = $web.Site
+{{ Add example description here }}
+
+## PARAMETERS
+
+### -AppUrl
+{{Fill AppUrl Description}}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
 ```
 
-```
-$serviceContext = [Microsoft.Sharepoint.SPServiceContext]::GetContext($serviceApp.ServiceApplicationProxyGroup, $site.SiteSubscription.Id);
+### -AssignmentCollection
+{{Fill AssignmentCollection Description}}
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
 ```
 
-```
-$serverCredential = Get-CredentialFromSecretsHashWithFarmId -Hash $Secrets -Type $SqlAzureServerPasswordGridSecretType -FarmId $SourceSqlFarm
+### -ServerCredential
+{{Fill ServerCredential Description}}
+
+```yaml
+Type: NetworkCredential
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
 ```
 
-```
-$sourceServerFQDN = $sourceDatabaseHost.Server + "." + $sourceDatabaseHost.Domain
+### -ServiceContext
+{{Fill ServiceContext Description}}
+
+```yaml
+Type: SPServiceContextPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
 ```
 
-```
-$targetServerFQDN = $targetDatabaseHost.Server + "." + $targetDatabaseHost.Domain
+### -SourceServer
+{{Fill SourceServer Description}}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
 ```
 
-```
-Copy-SPAccessServicesDatabaseCredentials -ServiceContext $serviceContext -AppUrl $appUrl -SourceServer $sourceServerFQDN -TargetServer $targetServerFQDN -ServerCredential $serverCredential
+### -TargetServer
+{{Fill TargetServer Description}}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
 ```
 
-This example copies credentials from a source to a target.
-  
-## Parameters
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-| _AppUrl_ <br/> |Required  <br/> |System.String  <br/> |Specifies the URL of the current application.  <br/> |
-| _ServerCredential_ <br/> |Required  <br/> |System.Net.NetworkCredential  <br/> |Specifies the network credentials used to access the current application.  <br/> |
-| _ServiceContext_ <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPServiceContextPipeBind  <br/> |Represents the context object that encapsulates all the information that is required to make a call to a service application.  <br/> |
-| _SourceServer_ <br/> |Required  <br/> |System.String  <br/> |Specifies the fully qualified name of the current server.  <br/> |
-| _TargetServer_ <br/> |Required  <br/> |System.String  <br/> |Specifies the fully qualified name of the new server.  <br/> |
-| _AssignmentCollection_ <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-   
+## INPUTS
+
+### Microsoft.SharePoint.PowerShell.SPServiceContextPipeBind
+Microsoft.SharePoint.PowerShell.SPAssignmentCollection
+
+## OUTPUTS
+
+### System.Object
+
+## NOTES
+
+## RELATED LINKS
 

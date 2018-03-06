@@ -1,66 +1,129 @@
 ---
-title: "Clear-SPAppDeniedEndpointList"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 3/9/2015
-ms.audience: ITPro
-ms.topic: article
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: ef17434e-7eff-444a-9aec-4f6e9afd4055
-
-description: "Removes all app-denied endpoints."
+external help file: 
+applicable: SharePoint Server 2013, SharePoint Server 2016
+title: Clear-SPAppDeniedEndpointList
+schema: 2.0.0
 ---
 
 # Clear-SPAppDeniedEndpointList
 
-Removes all app-denied endpoints.
-  
+## SYNOPSIS
+
+Applies to:
+
+
+
+
+## SYNTAX
+
 ```
-Clear-SPAppDeniedEndpointList [-AssignmentCollection <SPAssignmentCollection>] [-Confirm [<SwitchParameter>]] [-WhatIf [<SwitchParameter>]]
+Clear-SPAppDeniedEndpointList [-AssignmentCollection <SPAssignmentCollection>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
-## Detailed Description
+## DESCRIPTION
 
-Use the **Clear-SPAppDeniedEndpoint** cmdlet to remove all app-denied endpoints in the farm. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
+Use the Clear-SPAppDeniedEndpoint cmdlet to remove all app-denied endpoints in the farm.
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## AutoGenParams
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-   
-## Example
 
-------------EXAMPLE---------
-  
+
+## EXAMPLES
+
+### ------------EXAMPLE--------- 
 ```
-Clear-SPAppDeniedEndpoint
+C:\PS>Clear-SPAppDeniedEndpoint
 ```
 
 This example removes all app-denied endpoints from the farm.
-  
-## See also
 
-#### 
 
-[Add-SPAppDeniedEndpoint](add-spappdeniedendpoint.md)
-  
-[Remove-SPAppDeniedEndpoint](remove-spappdeniedendpoint.md)
-#### 
+## PARAMETERS
 
-[Get-SPAppDeniedEndpointList](get-spappdeniedendpointlist.md)
+### -AssignmentCollection
+
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the Stop-SPAssignment command, an out-of-memory scenario can occur.
+
+
+
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+
+Prompts you for confirmation before executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+
+
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+
+Displays a message that describes the effect of the command instead of executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+
+
+
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+### Microsoft.SharePoint.PowerShell.SPAssignmentCollection
+
+## OUTPUTS
+
+### System.Object
+
+## NOTES
+
+## RELATED LINKS
+
+[Get-SPAppDeniedEndpointList](Get-SPAppDeniedEndpointList.md)
 

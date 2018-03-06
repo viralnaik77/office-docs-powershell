@@ -1,75 +1,164 @@
 ---
-title: "New-SPClaimTypeEncoding"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 3/9/2015
-ms.audience: ITPro
-ms.topic: article
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 5995cda3-c97e-4317-8fc9-84bc5b63b9a2
-
-description: "Registers a new type of claim."
+external help file: 
+applicable: SharePoint Server 2013, SharePoint Server 2016
+title: New-SPClaimTypeEncoding
+schema: 2.0.0
 ---
 
 # New-SPClaimTypeEncoding
 
+## SYNOPSIS
+
 Registers a new type of claim.
-  
+
+
+
+## SYNTAX
+
 ```
-New-SPClaimTypeEncoding -ClaimType <String> -EncodingCharacter <Char> [-AssignmentCollection <SPAssignmentCollection>] [-Confirm [<SwitchParameter>]] [-Force <SwitchParameter>] [-WhatIf [<SwitchParameter>]]
+New-SPClaimTypeEncoding -ClaimType <String> -EncodingCharacter <Char>
+ [-AssignmentCollection <SPAssignmentCollection>] [-Confirm] [-Force] [-WhatIf] [<CommonParameters>]
 ```
 
-## Detailed Description
+## DESCRIPTION
 
-Use the **New-SPClaimTypeEncoding** cmdlet to register the following: 
-  
-- A new type of claim
-    
-- The Unicode character to which it should be encoded when the SPClaim.ToEncodedString method is invoked
-    
-- The SPClaim.ClaimType property is set to a valid value
-    
-For more information about the SPClaim methods and properties, see [ToEncodedString()](https://msdn.microsoft.com/library/Microsoft.SharePoint.Administration.Claims.SPClaim.ToEncodedString.aspx) and [ClaimType()](https://msdn.microsoft.com/library/Microsoft.SharePoint.Administration.Claims.SPClaim.ClaimType.aspx) respectively. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
+Use the New-SPClaimTypeEncoding cmdlet to register the following:
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**ClaimType** <br/> |Required  <br/> |System.String  <br/> |Specifies the type of claim for which you want to create a mapping.  <br/> |
-|**EncodingCharacter** <br/> |Required  <br/> |System.Char  <br/> |Specifies the Unicode character to which you want to create a mapping.  <br/> |
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-|**Force** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Suppresses confirmation messages to any claim type that is added.  <br/> |
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## AutoGenParams
+--A new type of claim
+--The Unicode character to which it should be encoded when the SPClaim.ToEncodedString method is invoked
+--The SPClaim.ClaimType property is set to a valid value
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**ClaimType** <br/> |Required  <br/> |System.String  <br/> ||
-|**EncodingCharacter** <br/> |Required  <br/> |System.Char  <br/> ||
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**Force** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Suppresses any dialog box that is displayed.  <br/> |
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-   
-## Example
+For more information about the SPClaim methods and properties, see M:Microsoft.SharePoint.Administration.Claims.SPClaim.ToEncodedString and P:Microsoft.SharePoint.Administration.Claims.SPClaim.ClaimType respectively.
 
-------------EXAMPLE------- 
-  
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
+
+
+
+## EXAMPLES
+
+### ------------EXAMPLE------- 
 ```
-New-SPClaimTypeEncoding -EncodingCharacter '1' -ClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country"
+C:\PS>New-SPClaimTypeEncoding -EncodingCharacter '1' -ClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country"
 ```
 
 This example registers a new type of claim.
-  
-## See also
 
-#### 
+## PARAMETERS
 
-[Get-SPClaimTypeEncoding](get-spclaimtypeencoding.md)
+### -ClaimType
+Specifies the type of claim for which you want to create a mapping.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EncodingCharacter
+Specifies the Unicode character to which you want to create a mapping.
+
+```yaml
+Type: Char
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the Stop-SPAssignment command, an out-of-memory scenario can occur.
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Force
+Suppresses confirmation messages to any claim type that is added.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Displays a message that describes the effect of the command instead of executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS
+
+[Get-SPClaimTypeEncoding](Get-SPClaimTypeEncoding.md)
 

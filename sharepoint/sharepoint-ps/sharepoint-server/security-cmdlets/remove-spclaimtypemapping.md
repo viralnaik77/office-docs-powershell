@@ -1,68 +1,137 @@
 ---
-title: "Remove-SPClaimTypeMapping"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 11/30/2015
-ms.audience: ITPro
-ms.topic: article
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: c3c90d1a-de69-4387-860f-be756efbbcfb
-
-description: "Deletes a claim type mapping rule for a security token service (STS) identity provider."
+external help file: 
+applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+title: Remove-SPClaimTypeMapping
+schema: 2.0.0
 ---
 
 # Remove-SPClaimTypeMapping
 
+## SYNOPSIS
 Deletes a claim type mapping rule for a security token service (STS) identity provider.
-  
+
+
+## SYNTAX
+
 ```
-Remove-SPClaimTypeMapping [-Identity] <SPClaimMappingPipeBind> [-TrustedIdentityTokenIssuer] <SPTrustedIdentityTokenIssuerPipeBind> [-AssignmentCollection <SPAssignmentCollection>] [-Confirm [<SwitchParameter>]] [-WhatIf [<SwitchParameter>]]
-```
-
-## Detailed Description
-
-The **Remove-SPClaimMapping** cmdlet deletes a claim type mapping rule from a farm trust STS identity provider. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPClaimMappingPipeBind  <br/> |Specifies the claim mapping to delete.  <br/> The type must be a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh; or a valid name of a claim mapping rule (for example, Email); or an instance of a valid **SPClaimMapping** object.  <br/> |
-|**TrustedIdentityTokenIssuer** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPTrustedIdentityTokenIssuerPipeBind  <br/> |Specifies the token issuer or a valid **SPTrustedIdentityTokenIssuerPipeBind** object.  <br/> |
-|**IdentityProvider** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPTrustedIdentityTokenIssuerPipeBind  <br/> |Specifies the farm trust identity provider STS that contains the claim mapping rule.  <br/> The type must be a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh; or a valid name of identity provider (for example, LiveIDSTS); or an instance of a valid **SPTrustedIdentityTokenIssuerPipeBind** object.  <br/> |
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## AutoGenParams
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPClaimMappingPipeBind  <br/> ||
-|**TrustedIdentityTokenIssuer** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPTrustedIdentityTokenIssuerPipeBind  <br/> ||
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-   
-## Example
-
---------------------EXAMPLE-------------------------
-  
-```
-Remove-SPClaimMapping -Identity "Email" - TrustedIdentityTokenIssuer "LiveIDSTS"
+Remove-SPClaimTypeMapping [-Identity] <SPClaimMappingPipeBind> [-AssignmentCollection <SPAssignmentCollection>]
+ [-Confirm] -TrustedIdentityTokenIssuer <SPTrustedIdentityTokenIssuerPipeBind> [-WhatIf] [<CommonParameters>]
 ```
 
-This example removes the claim mapping  `EMAIL` from an identity provider named  `LiveIDSTS`.
-  
-## See also
+## DESCRIPTION
+The `Remove-SPClaimMapping` cmdlet deletes a claim type mapping rule from a farm trust STS identity provider.
 
-#### 
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
 
-[Add-SPClaimTypeMapping](add-spclaimtypemapping.md)
-  
-[New-SPClaimTypeMapping](new-spclaimtypemapping.md)
 
+## EXAMPLES
+
+### --------------------EXAMPLE-------------------------
+```
+C:\PS>Remove-SPClaimMapping "Email" | Get-SPIdentityProvider "LiveIDSTS"
+```
+
+This example removes an identity provider named LiveIDSTS.
+
+
+## PARAMETERS
+
+### -Identity
+Specifies the claim mapping to delete.
+
+The type must be a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh; or a valid name of a claim mapping rule (for example, Email); or an instance of a valid SPClaimMapping object.
+
+```yaml
+Type: SPClaimMappingPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the `Stop-SPAssignment` command, an out-of-memory scenario can occur.
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TrustedIdentityTokenIssuer
+{{Fill TrustedIdentityTokenIssuer Description}}
+
+```yaml
+Type: SPTrustedIdentityTokenIssuerPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS

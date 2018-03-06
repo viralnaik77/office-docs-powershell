@@ -1,69 +1,122 @@
 ---
-title: "Remove-SPBusinessDataCatalogModel"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 3/9/2015
-ms.audience: ITPro
-ms.topic: article
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 6cadae52-e0d5-45eb-a023-b121b2f95903
-
-description: "Deletes a Business Data Connectivity Model."
+external help file: 
+applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+title: Remove-SPBusinessDataCatalogModel
+schema: 2.0.0
 ---
 
 # Remove-SPBusinessDataCatalogModel
 
+## SYNOPSIS
 Deletes a Business Data Connectivity Model.
-  
-```
-Remove-SPBusinessDataCatalogModel -Identity <MetadataObject> [-AssignmentCollection <SPAssignmentCollection>] [-Confirm [<SwitchParameter>]] [-WhatIf [<SwitchParameter>]]
-```
 
-## Detailed Description
 
-The **Remove-SPBusinessDataCatalogModel** cmdlet deletes a Business Data Connectivity Model. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Required  <br/> |Microsoft.SharePoint.BusinessData.Administration.MetadataObject  <br/> |Specifies the Business Data Connectivity Metadata Store metadata object to remove.  <br/> |
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## AutoGenParams
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Required  <br/> |Microsoft.SharePoint.BusinessData.Administration.MetadataObject  <br/> ||
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-   
-## Example
-
-------------------EXAMPLE------------------
-  
-```
-$modelFile = Get-SPBusinessDataCatalogMetadataObject -Name "ContosoModel" -BdcObjectType Model -ServiceContext http://contoso
-```
+## SYNTAX
 
 ```
-Remove-SPBusinessDataCatalogModel -Identity $modelFile
+Remove-SPBusinessDataCatalogModel -Identity <MetadataObject> [-AssignmentCollection <SPAssignmentCollection>]
+ [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-This example removes the Business Data Connectivity Model file named  `ContosoModel`.
-  
-## See also
+## DESCRIPTION
+The `Remove-SPBusinessDataCatalogModel` cmdlet deletes a Business Data Connectivity Model.
 
-#### 
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
 
-[Import-SPBusinessDataCatalogModel](import-spbusinessdatacatalogmodel.md)
-  
-[Export-SPBusinessDataCatalogModel](export-spbusinessdatacatalogmodel.md)
 
+## EXAMPLES
+
+### ------------------EXAMPLE------------------
+```
+C:\PS>$modelFile = Get-SPBusinessDataCatalogMetadataObject -Name "ContosoModel" -BdcObjectType Model -ServiceContext http://contoso
+
+C:\PS>Remove-SPBusinessDataCatalogModel -Identity $modelFile
+```
+
+This example removes the Business Data Connectivity Model file named ContosoModel.
+
+
+## PARAMETERS
+
+### -Identity
+Specifies the Business Data Connectivity Metadata Store metadata object to remove.
+
+```yaml
+Type: MetadataObject
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the `Stop-SPAssignment` command, an out-of-memory scenario can occur.
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Displays a message that describes the effect of the command instead of executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS

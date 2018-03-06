@@ -1,75 +1,205 @@
 ---
-title: "Set-SPAppPrincipalPermission"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 11/30/2015
-ms.audience: ITPro
-ms.topic: article
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: ada83c3d-dc0f-4b55-addf-8fde2c1e8457
-
-description: "Sets the permissions on a given app principal."
+external help file: 
+applicable: SharePoint Server 2013, SharePoint Server 2016
+title: Set-SPAppPrincipalPermission
+schema: 2.0.0
 ---
 
 # Set-SPAppPrincipalPermission
 
+## SYNOPSIS
 Sets the permissions on a given app principal.
-  
-```
-Set-SPAppPrincipalPermission -AppPrincipal <SPAppPrincipal> -Right <Read | Write | Manage | FullControl> -Scope <Site | SiteCollection | SiteSubscription> -Site <SPWebPipeBind> [-AssignmentCollection <SPAssignmentCollection>] [-Confirm [<SwitchParameter>]] [-EnableAppOnlyPolicy <SwitchParameter>] [-WhatIf [<SwitchParameter>]]
-```
 
-## Detailed Description
 
-Use the **Set-SPAppPrincipalPermission** cmdlet to set the permissions on a given app principal for a given scope (Site, site collection, or Site Subscription) and given levels (Read, Write, Manage, Full Control). 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**AppPrincipal** <br/> |Required  <br/> |Microsoft.SharePoint.SPAppPrincipal  <br/> |Specifies the AppPrincipal object.  <br/> |
-|**Right** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPCmdletAppPrincipalPermissionKind  <br/> |Specifies the permission level for the principal object.  <br/> The value is any of the following levels:  <br/> -- **Read** <br/> -- **Write** <br/> -- **Manage** <br/> -- **Full Control** <br/> |
-|**Scope** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPCmdletAppPrincipalPermissionScope  <br/> |Specifies the scope to which to apply the principal permission.  <br/> The value is any of the following scopes:  <br/> Site  <br/> Site collection  <br/> SiteSubscription  <br/> |
-|**Site** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPWebPipeBind  <br/> |Specifies the site (that is, SPWeb object) that the AppPrincipalPermission is being set.  <br/> |
-|**EnableAppOnlyPolicy** <br/> ||System.Management.Automation.SwitchParameter  <br/> |Specifies if the app only policy is turned on for the app principal.  <br/> The valid values are **True** and **False**. The default value is **False**.  <br/> |
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## AutoGenParams
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**AppPrincipal** <br/> |Required  <br/> |Microsoft.SharePoint.SPAppPrincipal  <br/> ||
-|**Right** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPCmdletAppPrincipalPermissionKind  <br/> ||
-|**Scope** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPCmdletAppPrincipalPermissionScope  <br/> ||
-|**Site** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPWebPipeBind  <br/> ||
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**EnableAppOnlyPolicy** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-   
-## Example
-
----------------EXAMPLE-------------
-  
-```
-$appPrincipal= Get-SPApplicationPrincipal -nameIdentifier $spTrustedIssuer.nameIdentifier -web $site.rootWeb
-```
+## SYNTAX
 
 ```
-Set-AppPrincipalPermission -appPrincipal $appPrincipal -site $site.rootweb -scope "spweb" -level "WRITE"
+Set-SPAppPrincipalPermission -AppPrincipal <SPAppPrincipal> -Right <SPCmdletAppPrincipalPermissionKind>
+ -Scope <SPCmdletAppPrincipalPermissionScope> -Site <SPWebPipeBind>
+ [-AssignmentCollection <SPAssignmentCollection>] [-Confirm] [-WhatIf] [-EnableAppOnlyPolicy]
+ [<CommonParameters>]
 ```
 
-This example sets the **Write** permission level of to the **SPWeb** scope. 
-  
-## See also
+## DESCRIPTION
+Use the `Set-SPAppPrincipalPermission` cmdlet to set the permissions on a given app principal for a given scope (tenant, site collection, and web) and given levels (Read, Write, Manage, Full Control).
 
-#### 
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
 
-[Remove-SPAppPrincipalPermission](remove-spappprincipalpermission.md)
 
+## EXAMPLES
+
+### ---------------EXAMPLE-------------
+```
+C:\PS>$appPrincipal= Get-SPApplicationPrincipal -nameIdentifier $spTrustedIssuer.nameIdentifier - web $site.rootWeb
+
+C:\PS>Set-AppPrincipalPermission -appPrincipal $appPrincipal -site $site.rootweb -scope "spweb" -level "WRITE"
+```
+
+This example sets the Write permission level of  to the SPWeb scope.
+
+
+## PARAMETERS
+
+### -AppPrincipal
+Specifies the AppPrincipal object.
+
+```yaml
+Type: SPAppPrincipal
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Right
+Specifies the permission level for the principal object.
+
+The value is any of the following levels:
+
+----Read
+--Write
+--Manage
+--Full Control
+
+```yaml
+Type: SPCmdletAppPrincipalPermissionKind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Scope
+Specifies the scope to which to apply the principal permission.
+
+The value is any of the following scopes:
+
+--Farm
+--Site collection
+--SharePoint Online
+--Web
+--Documents, List, or Library
+
+```yaml
+Type: SPCmdletAppPrincipalPermissionScope
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Site
+{{ Fill Site Description}}
+
+```yaml
+Type: SPWebPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the `Stop-SPAssignment` command, an out-of-memory scenario can occur.
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Displays a message that describes the effect of the command instead of executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EnableAppOnlyPolicy
+{{Fill EnableAppOnlyPolicy Description}}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS
+
+[Remove-SPAppPrincipalPermission](Remove-SPAppPrincipalPermission.md)

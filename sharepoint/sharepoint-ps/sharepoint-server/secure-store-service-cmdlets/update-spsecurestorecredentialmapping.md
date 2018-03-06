@@ -1,74 +1,161 @@
 ---
-title: "Update-SPSecureStoreCredentialMapping"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 3/9/2015
-ms.audience: ITPro
-ms.topic: overview
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 2b36a396-c89a-4366-ac91-b962e7d4d058
-
-description: "Sets a new credential mapping for a Secure Store Service application."
+external help file: 
+applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+title: Update-SPSecureStoreCredentialMapping
+schema: 2.0.0
 ---
 
 # Update-SPSecureStoreCredentialMapping
 
+## SYNOPSIS
 Sets a new credential mapping for a Secure Store Service application.
-  
+
+## SYNTAX
+
 ```
-Update-SPSecureStoreCredentialMapping -Identity <SPSecureStoreApplication> -Principal <SPClaim> -Values <SecureString[]> [-AssignmentCollection <SPAssignmentCollection>] [-Confirm [<SwitchParameter>]] [-WhatIf [<SwitchParameter>]]
+Update-SPSecureStoreCredentialMapping -Identity <SPSecureStoreApplication> -Principal <SPClaim>
+ -Values <SecureString[]> [-AssignmentCollection <SPAssignmentCollection>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
-## Detailed Description
+## DESCRIPTION
+The `Update-SPSecureStoreCredentialMapping` cmdlet sets a new credential mapping for a Secure Store Service application.
 
-The **Update-SPSecureStoreCredentialMapping** cmdlet sets a new credential mapping for a Secure Store Service application. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Required  <br/> |Microsoft.Office.SecureStoreService.PowerShellCmdlet.SPSecureStoreApplication  <br/> |Specifies the Secure Store Service application (that contains the principal) from which to delete the credential mapping.  <br/> |
-|**Principal** <br/> |Required  <br/> |Microsoft.SharePoint.SPClaim  <br/> |Specifies the SPClaims object that contains the principal.  <br/> |
-|**Values** <br/> |Required  <br/> |System.Security.SecureString[]  <br/> |Specifies the field values for the credential mapping.  <br/> |
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## AutoGenParams
+## EXAMPLES
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Required  <br/> |Microsoft.Office.SecureStoreService.PowerShellCmdlet.SPSecureStoreApplication  <br/> ||
-|**Principal** <br/> |Required  <br/> |Microsoft.SharePoint.Administration.Claims.SPClaim  <br/> ||
-|**Values** <br/> |Required  <br/> |System.Security.SecureString[]  <br/> ||
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-   
-## Example
-
-------------------EXAMPLE------------------
-  
+### ------------------EXAMPLE------------------
 ```
-$ssApp = Get-SPSecureStoreApplication -ServiceContext http://contoso -Name "ContosoTargetApplication"
+C:\PS>$ssApp = Get-SPSecureStoreApplication -ServiceContext http://contoso -Name "ContosoTargetApplication"
+
 $firstCredential = ConvertTo-SecureString "LOBDATABASE\jdoe" -AsPlainText -Force
+
 $secondCredential = ConvertTo-SecureString "abcDEF123$%^" -AsPlainText -Force
+
 $credentialValues = $firstCredential,$secondCredential
+
 $userClaim = New-SPClaimsPrincipal -Identity "CONTOSO\janedoe" -IdentityType WindowsSamAccountName
+
 Update-SPSecureStoreCredentialMapping -Identity $ssApp -Values $credentialValues -Principal $userClaim
 ```
 
-This example updates a credential mapping for the given site and the target application  `ContosoTargetApplication`, for the user with the identity  `janedoe` on domain  `CONTOSO`. This user is mapped to a pair of credential values on the External System with a username of identity  `jdoe` on domain  `LOBDATABASE` and password  `abcDEF123$%^`.
-  
-## See also
+This example updates a credential mapping for the given site and the target application ContosoTargetApplication, for the user with the identity janedoe on domain CONTOSO.
+This user is mapped to a pair of credential values on the External System with a username of identity jdoe on domain LOBDATABASE and password abcDEF123$%^.
 
-#### 
+## PARAMETERS
 
-[Clear-SPSecureStoreCredentialMapping](clear-spsecurestorecredentialmapping.md)
-  
-[Update-SPSecureStoreGroupCredentialMapping](update-spsecurestoregroupcredentialmapping.md)
+### -Identity
+Specifies the Secure Store Service application (that contains the principal) from which to delete the credential mapping.
 
+```yaml
+Type: SPSecureStoreApplication
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Principal
+Specifies the SPClaims object that contains the principal.
+
+```yaml
+Type: SPClaim
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Values
+Specifies the field values for the credential mapping.
+
+```yaml
+Type: SecureString[]
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the `Stop-SPAssignment` command, an out-of-memory scenario can occur.
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Displays a message that describes the effect of the command instead of executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS

@@ -1,51 +1,138 @@
 ---
-title: "Add-DatabaseToAvailabilityGroup"
-ms.author: kirks
-author: Techwriter40
-ms.date: 2/10/2016
-ms.audience: ITPro
-ms.topic: reference
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: be80d41d-302c-4af9-b5fe-4172b2dabaf6
-
-description: "Adds one or more databases from a SharePoint farm into an availability group in SQL Server."
+external help file: 
+applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+title: Add-DatabaseToAvailabilityGroup
+schema: 2.0.0
 ---
 
 # Add-DatabaseToAvailabilityGroup
 
-Adds one or more databases from a SharePoint farm into an availability group in SQL Server.
-  
+## SYNOPSIS
+Adds an availability group
+
+## SYNTAX
+
+### Default
 ```
-Add-DatabaseToAvailabilityGroup -DatabaseName <String> <COMMON PARAMETERS>
-
+Add-DatabaseToAvailabilityGroup [-AGName] <String> [-AssignmentCollection <SPAssignmentCollection>]
+ -DatabaseName <String> [-FileShare <String>] [<CommonParameters>]
 ```
 
-## Example
+### AllDatabases
+```
+Add-DatabaseToAvailabilityGroup [-AGName] <String> [-AssignmentCollection <SPAssignmentCollection>]
+ [-FileShare <String>] [-ProcessAllDatabases] [<CommonParameters>]
+```
 
---------------EXAMPLE----------- 
-  
+## DESCRIPTION
+Use the Add-DatabaseToAvailabilityGroup cmdlet to add an availability group to the farm.
+
+## EXAMPLES
+
+### Example 1 
 ```
 Add-DatabaseToAvailabilityGroup -AGName MyAvailabilityGroup -DatabaseName WSS_Content -FileShare \\backup\share\ 
 ```
 
 This example adds an availability group named "MyAvailabilityGroup" to the WSS_Content Database
-  
-## Parameters
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-| _AGName_ <br/> |Required  <br/> |System.String  <br/> |The name of the availability group from which the databases are being added.  <br/> |
-| _DatabaseName_ <br/> |Required  <br/> |System.String  <br/> |The name of the database to be added to the availability group.  <br/> > [!NOTE]> This parameter should not be used in conjunction with the **ProcessAllDatabases** parameter.           |
-| _ProcessAllDatabases_ <br/> |Required  <br/> |System.Management.Automation.SwitchParameter  <br/> |Adds all databases from the current SharePoint farm into the availability group.  <br/> |
-| _AssignmentCollection_ <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-| _FileShare_ <br/> |Optional  <br/> |System.String  <br/> |When a database is being added to the availability group, backup / restores are done from this location to propagate the database to all replicas.  <br/> |
-   
-## See also
+## PARAMETERS
 
-#### 
+### -AGName
+The name of the availability group from which the databases are being added.
 
-[Get-AvailabilityGroupStatus](get-availabilitygroupstatus.md)
-  
-[Remove-DatabaseFromAvailabilityGroup](remove-databasefromavailabilitygroup.md)
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal. Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+**NOTE:** When the Global parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the Stop-SPAssignment command, an out-of-memory scenario can occur. 
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -DatabaseName
+The name of the database to be added to the availability group. 
+**Note:** This parameter should not be used in conjunction with the **ProcessAllDatabases** parameter.
+
+```yaml
+Type: String
+Parameter Sets: Default
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FileShare
+When a database is being added to the availability group, backup / restores are done from this location to propagate the database to all replicas.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProcessAllDatabases
+Adds all databases from the current SharePoint farm into the availability group.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: AllDatabases
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+### Microsoft.SharePoint.PowerShell.SPAssignmentCollection
+
+## OUTPUTS
+
+### System.Object
+
+## NOTES
+
+## RELATED LINKS
 

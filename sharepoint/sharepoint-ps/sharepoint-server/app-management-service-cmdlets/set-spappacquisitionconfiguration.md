@@ -1,77 +1,171 @@
 ---
-title: "Set-SPAppAcquisitionConfiguration"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 3/9/2015
-ms.audience: ITPro
-ms.topic: article
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 67817555-9b6f-4bd3-8d44-5b2de080fd2e
-
-description: "Sets app acquisition settings."
+external help file: 
+applicable: SharePoint Server 2013, SharePoint Server 2016
+title: Set-SPAppAcquisitionConfiguration
+schema: 2.0.0
 ---
 
 # Set-SPAppAcquisitionConfiguration
 
-Sets app acquisition settings.
-  
+## SYNOPSIS
+{{Fill in the Synopsis}}
+
+
+## SYNTAX
+
+### MarketplaceSettingsInSiteSubscription
 ```
-Set-SPAppAcquisitionConfiguration -Enable <$true | $false> -WebApplication <SPWebApplicationPipeBind> [-AssignmentCollection <SPAssignmentCollection>] [-Confirm [<SwitchParameter>]] [-WhatIf [<SwitchParameter>]]
-```
-
-## Detailed Description
-
-This cmdlet contains more than one parameter set. You may only use parameters from one parameter set, and you may not combine parameters from different parameter sets. For more information about how to use parameter sets, see [Cmdlet Parameter Sets](https://go.microsoft.com/fwlink/?LinkID=187810).
-  
-Use the **Set-SPAppAcquisitionConfiguration** cmdlet to set app acquisition settings from the SharePoint Store or App Catalog. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Enable** <br/> |Required  <br/> |System.Boolean  <br/> |Specifies whether acquisition is enabled or disabled.  <br/> |
-|**SiteSubscription** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPSiteSubscriptionPipeBind  <br/> |Specifies the site collection for which to set app acquisition settings.  <br/> |
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-|**WebApplication** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPWebApplicationPipeBind  <br/> |Specifies the web application for which acquisitions settings are to be set.  <br/> |
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## AutoGenParams
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Enable** <br/> |Required  <br/> |System.Boolean  <br/> ||
-|**SiteSubscription** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPSiteSubscriptionPipeBind  <br/> ||
-|**WebApplication** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPWebApplicationPipeBind  <br/> ||
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-   
-## Example
-
-------------EXAMPLE 1--------
-  
-```
-Set-SPAppAcquisitionConfiguration -WebApplication http://localhost -Enable:$false
+Set-SPAppAcquisitionConfiguration -Enable <Boolean> -SiteSubscription <SPSiteSubscriptionPipeBind>
+ [-AssignmentCollection <SPAssignmentCollection>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-This example disables app purchase for the specified web application.
-  
-------------EXAMPLE 2--------
-  
+### MarketplaceSettingsInWebApplication
 ```
-Set-SPAppAcquisitionConfiguration -SiteSubscription http://localhost/sites/SharePointOnlineAdmin1 -Enable:$false
+Set-SPAppAcquisitionConfiguration -Enable <Boolean> [-AssignmentCollection <SPAssignmentCollection>] [-Confirm]
+ -WebApplication <SPWebApplicationPipeBind> [-WhatIf] [<CommonParameters>]
+```
+
+## DESCRIPTION
+{{Fill in the Description}}
+
+
+## EXAMPLES
+
+### --------------------EXAMPLE 1---------------------
+```
+PS C:\> {{ Add example code here }}
+```
+
+{{ Add example description here }}
+
+### --------------------EXAMPLE 2---------------------
+```
+C:\PS>Set-SPAppAcquisitionConfiguration -SiteSubscription http://localhost/sites/SharePointOnlineAdmin1 -Enable:$false
 ```
 
 This example disables app purchase for the specified tenant.
-  
-## See also
 
-#### 
 
-[Get-SPAppAcquisitionConfiguration](get-spappacquisitionconfiguration.md)
+## PARAMETERS
 
+### -Enable
+{{Fill Enable Description}}
+
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SiteSubscription
+{{Fill SiteSubscription Description}}
+
+
+```yaml
+Type: SPSiteSubscriptionPipeBind
+Parameter Sets: MarketplaceSettingsInSiteSubscription
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -AssignmentCollection
+{{Fill AssignmentCollection Description}}
+
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WebApplication
+{{Fill WebApplication Description}}
+
+
+```yaml
+Type: SPWebApplicationPipeBind
+Parameter Sets: MarketplaceSettingsInWebApplication
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+### Microsoft.SharePoint.PowerShell.SPWebApplicationPipeBind
+Microsoft.SharePoint.PowerShell.SPSiteSubscriptionPipeBind
+Microsoft.SharePoint.PowerShell.SPAssignmentCollection
+
+## OUTPUTS
+
+### System.Object
+
+## NOTES
+
+## RELATED LINKS
+
+[Get-SPAppAcquisitionConfiguration](Get-SPAppAcquisitionConfiguration.md)

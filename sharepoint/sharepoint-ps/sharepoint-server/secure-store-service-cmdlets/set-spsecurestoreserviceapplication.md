@@ -1,85 +1,287 @@
 ---
-title: "Set-SPSecureStoreServiceApplication"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 3/9/2015
-ms.audience: ITPro
-ms.topic: overview
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 6a41f2b2-9cf9-41be-afd9-65b97f100f3c
-
-description: "Sets properties of a Secure Store Service application in the farm."
+external help file: 
+applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+title: Set-SPSecureStoreServiceApplication
+schema: 2.0.0
 ---
 
 # Set-SPSecureStoreServiceApplication
 
+## SYNOPSIS
 Sets properties of a Secure Store Service application in the farm.
-  
+
+
+## SYNTAX
+
 ```
-Set-SPSecureStoreServiceApplication -Identity <SPServiceApplicationPipeBind> [-ApplicationPool <SPIisWebServiceApplicationPool>] [-AssignmentCollection <SPAssignmentCollection>] [-AuditingEnabled <SwitchParameter>] [-AuditlogMaxSize <Nullable>] [-Confirm [<SwitchParameter>]] [-DatabaseCredentials <PSCredential>] [-DatabaseName <String>] [-DatabasePassword <SecureString>] [-DatabaseServer <String>] [-DatabaseUsername <String>] [-FailoverDatabaseServer <String>] [-Sharing <SwitchParameter>] [-WhatIf [<SwitchParameter>]]
+Set-SPSecureStoreServiceApplication -Identity <SPServiceApplicationPipeBind>
+ [-ApplicationPool <SPIisWebServiceApplicationPool>] [-AssignmentCollection <SPAssignmentCollection>]
+ [-AuditingEnabled] [-AuditlogMaxSize <Int32>] [-Confirm] [-DatabaseCredentials <PSCredential>]
+ [-DatabaseName <String>] [-DatabasePassword <SecureString>] [-DatabaseServer <String>]
+ [-DatabaseUsername <String>] [-FailoverDatabaseServer <String>] [-Sharing] [-WhatIf] [<CommonParameters>]
 ```
 
-## Detailed Description
+## DESCRIPTION
+The `Set-SPSecureStoreServiceApplication` cmdlet sets properties of a Secure Store Service application in the farm.
 
-The Set- **SPSecureStoreServiceApplication** cmdlet sets properties of a Secure Store Service application in the farm. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPServiceApplicationPipeBind  <br/> |Specifies the service application to update.  <br/> |
-|**ApplicationPool** <br/> |Optional  <br/> |Microsoft.SharePoint.Administration.SPIisWebServiceApplicationPool  <br/> |Specifies the existing IIS application pool to run the Web service in for the new service application.  <br/> |
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-|**AuditingEnabled** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Turns on auditing for the Secure Store Service.  <br/> |
-|**AuditlogMaxSize** <br/> |Optional  <br/> |System.Nullable  <br/> |Specifies the number of days to retain the audit log.  <br/> The type must be a valid integer.  <br/> |
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-|**DatabaseCredentials** <br/> |Optional  <br/> |System.Management.Automation.PSCredential  <br/> |Specifies the PSCredential object that contains the user name and password to be used for database SQL authentication.  <br/> |
-|**DatabaseName** <br/> |Optional  <br/> |System.String  <br/> |Specifies the name of the Secure Store service database.  <br/> |
-|**DatabasePassword** <br/> |Optional  <br/> |System.Security.SecureString  <br/> |Specifies the password for the user specified in DatabaseUserName. Use this parameter only if SQL authentication is used to access the metadata service application database.  <br/> |
-|**DatabaseServer** <br/> |Optional  <br/> |System.String  <br/> |Specifies the name of the host server for the database specified in DatabaseName.  <br/> |
-|**DatabaseUsername** <br/> |Optional  <br/> |System.String  <br/> |Specifies the user name to use for connecting to the database for the Secure Store service application. Use this parameter only if SQL authentication is used to access the service application database.  <br/> |
-|**FailoverDatabaseServer** <br/> |Optional  <br/> |System.String  <br/> |Specifies the name of the host server for the failover database server.  <br/> |
-|**Sharing** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Specifies that the Secure Store Service application is published and shared across the farm.  <br/> |
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## AutoGenParams
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPServiceApplicationPipeBind  <br/> ||
-|**ApplicationPool** <br/> |Optional  <br/> |Microsoft.SharePoint.Administration.SPIisWebServiceApplicationPool  <br/> ||
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**AuditingEnabled** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**AuditlogMaxSize** <br/> |Optional  <br/> |System.Nullable  <br/> ||
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**DatabaseCredentials** <br/> |Optional  <br/> |System.Management.Automation.PSCredential  <br/> ||
-|**DatabaseName** <br/> |Optional  <br/> |System.String  <br/> ||
-|**DatabasePassword** <br/> |Optional  <br/> |System.Security.SecureString  <br/> ||
-|**DatabaseServer** <br/> |Optional  <br/> |System.String  <br/> ||
-|**DatabaseUsername** <br/> |Optional  <br/> |System.String  <br/> ||
-|**FailoverDatabaseServer** <br/> |Optional  <br/> |System.String  <br/> ||
-|**Sharing** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-   
-## Example
+## EXAMPLES
 
-------------------EXAMPLE------------------
-  
+### ------------------EXAMPLE------------------
 ```
-Set-SPSecureStoreServiceApplication -Identity $contosoServApp -AuditlogMaxSize 40
+C:\PS>Set-SPSecureStoreServiceApplication -Identity $contosoServApp -AuditlogMaxSize 40
 ```
 
 This example sets the maximum size of the audit log to 40 days for the given service application.
-  
-## See also
 
-#### 
 
-[New-SPSecureStoreServiceApplication](new-spsecurestoreserviceapplication.md)
-  
-[New-SPSecureStoreServiceApplicationProxy](new-spsecurestoreserviceapplicationproxy.md)
+## PARAMETERS
 
+### -Identity
+Specifies the service application to update.
+
+```yaml
+Type: SPServiceApplicationPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -ApplicationPool
+Specifies the existing IIS application pool to run the Web service in for the new service application.
+
+```yaml
+Type: SPIisWebServiceApplicationPool
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the `Stop-SPAssignment` command, an out-of-memory scenario can occur.
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -AuditingEnabled
+Turns on auditing for the Secure Store Service.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AuditlogMaxSize
+Specifies the number of days to retain the audit log.
+
+The type must be a valid integer.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DatabaseCredentials
+Specifies the PSCredential object that contains the user name and password to be used for database SQL authentication.
+
+```yaml
+Type: PSCredential
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DatabaseName
+Specifies the name of the Secure Store service database.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DatabasePassword
+Specifies the password for the user specified in DatabaseUserName.
+Use this parameter only if SQL authentication is used to access the metadata service application database.
+
+```yaml
+Type: SecureString
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DatabaseServer
+Specifies the name of the host server for the database specified in DatabaseName.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DatabaseUsername
+Specifies the user name to use for connecting to the database for the Secure Store service application.
+Use this parameter only if SQL authentication is used to access the service application database.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -FailoverDatabaseServer
+Specifies the name of the host server for the failover database server.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Sharing
+Specifies that the Secure Store Service application is published and shared across the farm.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Displays a message that describes the effect of the command instead of executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS

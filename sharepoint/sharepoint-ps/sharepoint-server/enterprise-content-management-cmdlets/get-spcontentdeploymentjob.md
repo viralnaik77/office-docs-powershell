@@ -1,68 +1,106 @@
 ---
-title: "Get-SPContentDeploymentJob"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 10/6/2015
-ms.audience: ITPro
-ms.topic: article
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 2315980a-cb92-48da-8bd4-b304663ada44
-
-description: "Returns a content deployment job or a collection of content deployment jobs."
+external help file: 
+applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+title: Get-SPContentDeploymentJob
+schema: 2.0.0
 ---
 
 # Get-SPContentDeploymentJob
 
+## SYNOPSIS
 Returns a content deployment job or a collection of content deployment jobs.
-  
-```
-Get-SPContentDeploymentJob [-AssignmentCollection <SPAssignmentCollection>] [-Identity <SPContentDeploymentJobPipeBind>] [-Path <SPContentDeploymentPathPipeBind>]
+
+## SYNTAX
 
 ```
-
-## Example
-
----------------EXAMPLE--------------
-  
-```
-Get-SPContentDeploymentJob "Job 1"
+Get-SPContentDeploymentJob [[-Identity] <SPContentDeploymentJobPipeBind>]
+ [-AssignmentCollection <SPAssignmentCollection>] [-Path <SPContentDeploymentPathPipeBind>]
+ [<CommonParameters>]
 ```
 
-This example returns the content deployment job called  `Job 1`.
-  
-## Detailed Description
+## DESCRIPTION
+The Get-SPContentDeploymentJob cmdlet reads the specified content deployment job.
+If the Identity parameter is not specified, this cmdlet returns the collection of content deployment jobs on the farm.
 
-The **Get-SPContentDeploymentJob** cmdlet reads the specified content deployment job. If the **Identity** parameter is not specified, this cmdlet returns the collection of content deployment jobs on the farm. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715). 
-  
-## Parameters
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-| _AssignmentCollection_ <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-| _Identity_ <br/> |Optional  <br/> |Microsoft.SharePoint.Publishing.Cmdlet.SPContentDeploymentJobPipeBind  <br/> |Specifies the content deployment job to get.  <br/> The type must be a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh; a valid name of a content deployment job (for example, DeployJob1); or an instance of a valid **SPContentDeploymentJob** object.  <br/> |
-| _Path_ <br/> |Optional  <br/> |Microsoft.SharePoint.Publishing.Cmdlet.SPContentDeploymentPathPipeBind  <br/> |Specifies that content deployment jobs for only the specified content deployment path are returned.  <br/> The type must be a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh; a valid name of a content deployment job (for example; DeployPath1); or an instance of a valid **SPContentDeploymentPath** object.  <br/> |
-   
-## AutoGenParams
+## EXAMPLES
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Optional  <br/> |Microsoft.SharePoint.Publishing.Cmdlet.SPContentDeploymentJobPipeBind  <br/> ||
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**Path** <br/> |Optional  <br/> |Microsoft.SharePoint.Publishing.Cmdlet.SPContentDeploymentPathPipeBind  <br/> ||
-   
-## See also
+### ---------------EXAMPLE-------------- 
+```
+C:\PS>Get-SPContentDeploymentJob "Job 1"
+```
 
-#### 
+This example returns the content deployment job called Job 1.
 
-[New-SPContentDeploymentJob](new-spcontentdeploymentjob.md)
-  
-[Remove-SPContentDeploymentJob](remove-spcontentdeploymentjob.md)
-  
-[Set-SPContentDeploymentJob](set-spcontentdeploymentjob.md)
-  
-[Start-SPContentDeploymentJob](start-spcontentdeploymentjob.md)
+## PARAMETERS
+
+### -Identity
+Specifies the content deployment job to get.
+
+The type must be a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh; a valid name of a content deployment job (for example, DeployJob1); or an instance of a valid SPContentDeploymentJob object.
+
+```yaml
+Type: SPContentDeploymentJobPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the Stop-SPAssignment command, an out-of-memory scenario can occur.
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Path
+Specifies that content deployment jobs for only the specified content deployment path are returned.
+
+The type must be a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh; a valid name of a content deployment job (for example; DeployPath1); or an instance of a valid SPContentDeploymentPath object.
+
+```yaml
+Type: SPContentDeploymentPathPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS
 

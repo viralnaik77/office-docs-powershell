@@ -1,85 +1,140 @@
 ---
-title: "Disable-SPInfoPathFormTemplate"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 3/9/2015
-ms.audience: ITPro
-ms.topic: reference
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 1e8e306a-4a37-4fae-a9ef-551c0c9b8b72
-
-description: "Deactivates a InfoPath 2016 form template from the specified site collection."
+external help file: 
+applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+title: Disable-SPInfoPathFormTemplate
+schema: 2.0.0
 ---
 
 # Disable-SPInfoPathFormTemplate
 
-Deactivates a InfoPath 2016 form template from the specified site collection.
-  
-```
-Disable-SPInfoPathFormTemplate [-Identity] <SPFormTemplatePipeBind> -Site <SPSitePipeBind> [-AssignmentCollection <SPAssignmentCollection>] [-Confirm [<SwitchParameter>]] [-WhatIf [<SwitchParameter>]]
-```
+## SYNOPSIS
+Deactivates a InfoPath form template from the specified site collection.
 
-## Detailed Description
-
-The **Disable-SPInfoPathFormTemplate** cmdlet deactivates the InfoPath 2016 form template that is specified in the **Identity** parameter. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Required  <br/> |Microsoft.Office.InfoPath.Server.Cmdlet.SPFormTemplatePipeBind  <br/> |Specifies the InfoPath 2016 form template to disable.  <br/> The type must be a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh; a valid name of a form template (for example, InfoPathFormTemplate1); a valid name of a form template files (for example, FormTemplateFile1.xsn); or an instance of a valid **SPFormTemplate** object.  <br/> |
-|**Site** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPSitePipeBind  <br/> |Specifies the site collection that contains the InfoPath 2016 form template to deactivate.  <br/> The type must be a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh; a valid URL, in the form http://server_name; or an instance of a valid **SPSite** object.  <br/> |
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## AutoGenParams
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**Identity** <br/> |Required  <br/> |Microsoft.Office.InfoPath.Server.Cmdlet.SPFormTemplatePipeBind  <br/> ||
-|**Site** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPSitePipeBind  <br/> ||
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**Confirm** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-|**WhatIf** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-   
-## Example
-
----------------EXAMPLE--------------
-  
-```
-Disable-SPInfoPathFormTemplate -Identity "FormTemplate.xsn" -Site http://testSite
-```
+## SYNTAX
 
 ```
-"FormTemplatexsn" | Disable-SPInfoPathFormTemplate -Site "http://testSite"
+Disable-SPInfoPathFormTemplate [-Identity] <SPFormTemplatePipeBind> -Site <SPSitePipeBind>
+ [-AssignmentCollection <SPAssignmentCollection>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-This example deactivates an InfoPath 2016 form template from a site collection named  `TestSite`.
-  
-## See also
+## DESCRIPTION
+The Disable-SPInfoPathFormTemplate cmdlet deactivates the InfoPath form template that is specified in the Identity parameter.
 
-#### 
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
 
-[Enable-SPInfoPathFormTemplate](enable-spinfopathformtemplate.md)
-  
-[Get-SPInfoPathFormTemplate](get-spinfopathformtemplate.md)
-  
-[Install-SPInfoPathFormTemplate](install-spinfopathformtemplate.md)
-  
-[Set-SPInfoPathFormTemplate](set-spinfopathformtemplate.md)
-  
-[Start-SPInfoPathFormTemplate](start-spinfopathformtemplate.md)
-  
-[Stop-SPInfoPathFormTemplate](stop-spinfopathformtemplate.md)
-  
-[Test-SPInfoPathFormTemplate](test-spinfopathformtemplate.md)
-  
-[Uninstall-SPInfoPathFormTemplate](uninstall-spinfopathformtemplate.md)
-  
-[Update-SPInfoPathFormTemplate](update-spinfopathformtemplate.md)
+## EXAMPLES
+
+### ---------------EXAMPLE-------------- 
+```
+C:\PS>Disable-SPInfoPathFormTemplate -Identity "FormTemplate.xsn" -Site http://testSite
+
+C:\PS>"FormTemplatexsn" | Disable-SPInfoPathFormTemplate -Site "http://testSite"
+```
+
+This example deactivates an InfoPath form  template from a site collection named TestSite.
+
+## PARAMETERS
+
+### -Identity
+Specifies the InfoPath form template to disable.
+
+The type must be a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh; a valid name of a form template (for example, InfoPathFormTemplate1); a valid name of a form template files (for example, FormTemplateFile1.xsn); or an instance of a valid SPFormTemplate object.
+
+```yaml
+Type: SPFormTemplatePipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Site
+Specifies the site collection that contains the InfoPath form template to deactivate.
+
+The type must be a valid GUID, in the form 12345678-90ab-cdef-1234-567890bcdefgh; a valid URL, in the form http://server_name; or an instance of a valid SPSite object.
+
+```yaml
+Type: SPSitePipeBind
+Parameter Sets: (All)
+Aliases: Url
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the Stop-SPAssignment command, an out-of-memory scenario can occur.
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Displays a message that describes the effect of the command instead of executing the command.
+For more information, type the following command: `get-help about_commonparameters`
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS
 

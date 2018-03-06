@@ -1,69 +1,99 @@
 ---
-title: "Get-SPAccessServicesDatabaseServerGroup"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 10/20/2015
-ms.audience: ITPro
-ms.topic: reference
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: a8c1d550-1a00-47dc-a31d-7833b7ab0f05
-
-description: "Returns the settings for all application server groups."
+external help file: 
+applicable: SharePoint Server 2013, SharePoint Server 2016
+title: Get-SPAccessServicesDatabaseServerGroup
+schema: 2.0.0
 ---
 
 # Get-SPAccessServicesDatabaseServerGroup
 
-Returns the settings for all application server groups.
-  
-```
-Get-SPAccessServicesDatabaseServerGroup [-ServiceContext] <SPServiceContextPipeBind> [[-DatabaseServerGroup] <AccessServicesDatabaseServerGroupPipeBind>] [-AssignmentCollection <SPAssignmentCollection>]
-```
+## SYNOPSIS
+{{Fill in the Synopsis}}
 
-## Detailed Description
-
-Use the **Get-SPAccessServicesDatabaseServerGroup** cmdlet to display the settings for all application server groups using the Access Services 2013 service. If the database server group is not specified, the cmdlet returns the collection of Access Services database server groups that are in the Web service Application. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
-
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**ServiceContext** <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPServiceContextPipeBind  <br/> |Specifies the Access service application.  <br/> |
-|**DatabaseServerGroup** <br/> |Optional  <br/> |Microsoft.Office.Access.Services.PowerShell.AccessServicesDatabaseServerGroupPipeBind  <br/> |Specifies the Access application server.  <br/> |
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-   
-## Example
-
--------------EXAMPLE-------
-  
-```
-$ASapp = Get-SPAccessServicesApplication
-```
+## SYNTAX
 
 ```
-$app = $Null
+Get-SPAccessServicesDatabaseServerGroup [-ServiceContext] <SPServiceContextPipeBind>
+ [[-DatabaseServerGroup] <AccessServicesDatabaseServerGroupPipeBind>]
+ [-AssignmentCollection <SPAssignmentCollection>] [<CommonParameters>]
 ```
 
+## DESCRIPTION
+{{Fill in the Description}}
+
+## EXAMPLES
+
+### Example 1 
 ```
-if ($ASapp.length -ne $Null) { $app = $ASapp[0] } else { $app = $ASapp }
+PS C:\> {{ Add example code here }}
 ```
 
-```
-$context = [Microsoft.SharePoint.SPServiceContext]::GetContext($app.ServiceApplicationProxyGroup, [Microsoft.SharePoint.SPSiteSubscriptionIdentifier]::Default)
+{{ Add example description here }}
+
+## PARAMETERS
+
+### -AssignmentCollection
+{{Fill AssignmentCollection Description}}
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
 ```
 
+### -DatabaseServerGroup
+{{Fill DatabaseServerGroup Description}}
+
+```yaml
+Type: AccessServicesDatabaseServerGroupPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
 ```
-$dsg = Get-SPAccessServicesDatabaseServerGroup -ServiceContext $context
+
+### -ServiceContext
+{{Fill ServiceContext Description}}
+
+```yaml
+Type: SPServiceContextPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
 ```
 
-This example returns all Access Services database server group from the farm.
-  
-## See also
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-#### 
+## INPUTS
 
-[Set-SPAccessServicesDatabaseServerGroupMapping](set-spaccessservicesdatabaseservergroupmapping.md)
+### Microsoft.SharePoint.PowerShell.SPServiceContextPipeBind
+Microsoft.Office.Access.Services.PowerShell.AccessServicesDatabaseServerGroupPipeBind
+Microsoft.SharePoint.PowerShell.SPAssignmentCollection
+
+## OUTPUTS
+
+### System.Object
+
+## NOTES
+
+## RELATED LINKS
 

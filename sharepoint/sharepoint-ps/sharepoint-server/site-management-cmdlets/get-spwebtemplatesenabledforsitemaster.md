@@ -1,51 +1,63 @@
 ---
-title: "Get-SPWebTemplatesEnabledForSiteMaster"
-ms.author: kirks
-author: Techwriter40
-ms.date: 8/7/2015
-ms.audience: ITPro
-ms.topic: reference
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 894731d4-7bc9-4f62-a31e-e0e6326b081e
-
-description: "Returns a list of site master web templates."
+external help file: 
+applicable: SharePoint Server 2016
+title: Get-SPWebTemplatesEnabledForSiteMaster
+schema: 2.0.0
 ---
 
 # Get-SPWebTemplatesEnabledForSiteMaster
 
-Returns a list of site master web templates.
-  
-```
-Get-SPWebTemplatesEnabledForSiteMaster [-AssignmentCollection <SPAssignmentCollection>]
+## SYNOPSIS
+{{Fill in the Synopsis}}
+
+## SYNTAX
 
 ```
-
-## Example
-
-------------------EXAMPLE-----------------------
-  
-```
-Get-SPWebTemplatesEnabledForSiteMaster
+Get-SPWebTemplatesEnabledForSiteMaster [-AssignmentCollection <SPAssignmentCollection>] [<CommonParameters>]
 ```
 
-This example displays all the site master web templates in a farm.
-  
-## Detailed Description
+## DESCRIPTION
+{{Fill in the Description}}
 
-Use the **Get-SPWebTemplatesEnabledForSiteMaster** cmdlet to display a full list of site master web templates in the farm. 
-  
-## Parameters
+## EXAMPLES
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-| _AssignmentCollection_ <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-   
-## See also
+### Example 1 
+```
+PS C:\> {{ Add example code here }}
+```
 
-#### 
+{{ Add example description here }}
 
-[Enable-SPWebTemplateForSiteMaster](enable-spwebtemplateforsitemaster.md)
-  
-[Disable-SPWebTemplateForSiteMaster](disable-spwebtemplateforsitemaster.md)
+## PARAMETERS
+
+### -AssignmentCollection
+{{Fill AssignmentCollection Description}}
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+### Microsoft.SharePoint.PowerShell.SPAssignmentCollection
+
+## OUTPUTS
+
+### System.Object
+
+## NOTES
+
+## RELATED LINKS
 

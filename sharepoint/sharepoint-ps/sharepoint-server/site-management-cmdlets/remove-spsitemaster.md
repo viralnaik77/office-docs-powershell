@@ -1,55 +1,133 @@
 ---
-title: "Remove-SPSiteMaster"
-ms.author: kirks
-author: Techwriter40
-ms.date: 10/23/2015
-ms.audience: ITPro
-ms.topic: reference
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: d722f73a-448c-47c1-913c-b0bb0dd5aa36
-
-description: "Removes a site master."
+external help file: 
+applicable: SharePoint Server 2016
+title: Remove-SPSiteMaster
+schema: 2.0.0
 ---
 
 # Remove-SPSiteMaster
 
-Removes a site master.
-  
-```
-Remove-SPSiteMaster -ContentDatabase <SPContentDatabasePipeBind> -SiteId <Guid> [-AssignmentCollection <SPAssignmentCollection>] [-Confirm [<SwitchParameter>]] [-WhatIf [<SwitchParameter>]]
+## SYNOPSIS
+{{Fill in the Synopsis}}
+
+
+## SYNTAX
 
 ```
-
-## Example
-
-------------------EXAMPLE-----------------------
-  
-```
-Remove-SPSiteMaster -ContentDatabase "WSS_Content" -SiteId 
+Remove-SPSiteMaster [-ContentDatabase] <SPContentDatabasePipeBind> [-SiteId] <Guid>
+ [-AssignmentCollection <SPAssignmentCollection>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-This example removes a site master from the database.
-  
-## Detailed Description
+## DESCRIPTION
+{{Fill in the Description}}
 
-Use the **Remove-SPSiteMaster** cmdlet to remove a site master from the database. 
-  
-## Parameters
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-| _ContentDatabase_ <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPContentDatabasePipeBind  <br/> |Specifies the name of the database to remove the site master. For example, WSS_Content.  <br/> |
-| _SiteId_ <br/> |Required  <br/> |System.Guid  <br/> |Specifies the ID of the Site Master to remove. For example, ff480534-7e64-44a5-b7e3-7c418624cdf6.  <br/> |
-| _AssignmentCollection_ <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-| _Confirm_ <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-| _WhatIf_ <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## See also
+## EXAMPLES
 
-#### 
+### -----------------------EXAMPLE-----------------------------
+```
+PS C:\> {{ Add example code here }}
+```
 
-[Get-SPSiteMaster](get-spsitemaster.md)
-  
-[New-SPSiteMaster](new-spsitemaster.md)
+{{ Add example description here }}
 
+
+## PARAMETERS
+
+### -AssignmentCollection
+{{Fill AssignmentCollection Description}}
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ContentDatabase
+{{Fill ContentDatabase Description}}
+
+```yaml
+Type: SPContentDatabasePipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2016
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
+### -SiteId
+{{Fill SiteId Description}}
+
+```yaml
+Type: Guid
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2016
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+### Microsoft.SharePoint.PowerShell.SPContentDatabasePipeBind
+System.Guid
+Microsoft.SharePoint.PowerShell.SPAssignmentCollection
+
+## OUTPUTS
+
+### System.Object
+
+## NOTES
+
+## RELATED LINKS

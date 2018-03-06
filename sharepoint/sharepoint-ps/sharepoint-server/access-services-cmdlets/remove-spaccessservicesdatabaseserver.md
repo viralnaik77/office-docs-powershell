@@ -1,78 +1,166 @@
 ---
-title: "Remove-SPAccessServicesDatabaseServer"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 10/20/2015
-ms.audience: ITPro
-ms.topic: reference
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 25e20551-8be0-48f6-b094-8b5dd361e34b
-
-description: "Removes the specified database server."
+external help file: 
+applicable: SharePoint Server 2013, SharePoint Server 2016
+title: Remove-SPAccessServicesDatabaseServer
+schema: 2.0.0
 ---
 
 # Remove-SPAccessServicesDatabaseServer
 
-Removes the specified database server.
-  
-```
-Remove-SPAccessServicesDatabaseServer -DatabaseServer <AccessServicesDatabaseServerPipeBind> -DatabaseServerGroup <AccessServicesDatabaseServerGroupPipeBind> -ServiceContext <SPServiceContextPipeBind> [-AssignmentCollection <SPAssignmentCollection>] [-Confirm [<SwitchParameter>]] [-Force <SwitchParameter>] [-WhatIf [<SwitchParameter>]]
+## SYNOPSIS
+{{Fill in the Synopsis}}
+
+
+## SYNTAX
 
 ```
-
-## Example
-
---------------EXAMPLE--------
-  
-```
-$serverGroupName = 'DEFAULT'
+Remove-SPAccessServicesDatabaseServer [-ServiceContext] <SPServiceContextPipeBind>
+ [-AssignmentCollection <SPAssignmentCollection>] [-Confirm]
+ -DatabaseServer <AccessServicesDatabaseServerPipeBind>
+ -DatabaseServerGroup <AccessServicesDatabaseServerGroupPipeBind> [-Force] [-WhatIf] [<CommonParameters>]
 ```
 
-```
-$context = [Microsoft.SharePoint.SPServiceContext]::GetContext($app.ServiceApplicationProxyGroup, [Microsoft.SharePoint.SPSiteSubscriptionIdentifier]::Default)
-```
+## DESCRIPTION
+{{Fill in the Description}}
 
-```
-$sqlServerName = "SQLServer2012AppDbServer"
-```
 
-```
-$newdbserver = New-SPAccessServicesDatabaseServer -ServiceContext $context -DatabaseServerName $sqlServerName -DatabaseServerGroup $serverGroupName -AvailableForCreate $true
-```
+## EXAMPLES
 
+### ------------------EXAMPLE------------------
 ```
-Remove-SPAccessServicesDatabaseServer -ServiceContext $context -DatabaseServer $newdbserver -DatabaseServerGroup "DEFAULT"
+PS C:\> {{ Add example code here }}
 ```
 
-This example removes all Access Services database servers from the default group.
-  
-## Detailed Description
+{{ Add example description here }}
 
-Use the **Remove-SPAccessServicesDatabaseServer** cmdlet to remove the target Access Services database server by using the **DatabaseServerGroup** and **ServiceContext** parameters. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715). 
-  
-## Parameters
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-| _DatabaseServer_ <br/> |Required  <br/> |Microsoft.Office.Access.Services.PowerShell.AccessServicesDatabaseServerPipeBind  <br/> |Specifies the database server to be deleted.  <br/> |
-| _DatabaseServerGroup_ <br/> |Required  <br/> |Microsoft.Office.Access.Services.PowerShell.AccessServicesDatabaseServerGroupPipeBind  <br/> |Specifies the Access Services database server group to remove.  <br/> |
-| _ServiceContext_ <br/> |Required  <br/> |Microsoft.SharePoint.PowerShell.SPServiceContextPipeBind  <br/> |Specifies the service context to remove the Access Services database server.  <br/> |
-| _AssignmentCollection_ <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-| _Confirm_ <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Prompts you for confirmation before executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-| _Force_ <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Force removing the database server.  <br/> |
-| _WhatIf_ <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |Displays a message that describes the effect of the command instead of executing the command. For more information, type the following command: **get-help about_commonparameters** <br/> |
-   
-## See also
+## PARAMETERS
 
-#### 
+### -AssignmentCollection
+{{Fill AssignmentCollection Description}}
 
-[Get-SPAccessServicesDatabaseServer](get-spaccessservicesdatabaseserver.md)
-  
-[New-SPAccessServicesDatabaseServer](new-spaccessservicesdatabaseserver.md)
-  
-[Set-SPAccessServicesDatabaseServer](set-spaccessservicesdatabaseserver.md)
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
 
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DatabaseServer
+{{Fill DatabaseServer Description}}
+
+```yaml
+Type: AccessServicesDatabaseServerPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DatabaseServerGroup
+{{Fill DatabaseServerGroup Description}}
+
+```yaml
+Type: AccessServicesDatabaseServerGroupPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Force
+{{Fill Force Description}}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ServiceContext
+{{Fill ServiceContext Description}}
+
+```yaml
+Type: SPServiceContextPipeBind
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+Applicable: SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+### Microsoft.SharePoint.PowerShell.SPServiceContextPipeBind
+Microsoft.SharePoint.PowerShell.SPAssignmentCollection
+
+## OUTPUTS
+
+### System.Object
+
+## NOTES
+
+## RELATED LINKS

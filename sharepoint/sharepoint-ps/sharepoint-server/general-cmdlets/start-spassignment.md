@@ -1,104 +1,123 @@
 ---
-title: "Start-SPAssignment"
-ms.author: laurawi
-author: LauraWi
-manager: laurawi
-ms.date: 11/20/2015
-ms.audience: ITPro
-ms.topic: article
-ms.prod: office-online-server
-localization_priority: Normal
-ms.assetid: 59624e54-15b0-494d-b064-12febf0fcba1
-
-description: "Initiates a new assignment store."
+external help file: 
+applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+title: Start-SPAssignment
+schema: 2.0.0
 ---
 
 # Start-SPAssignment
 
+## SYNOPSIS
 Initiates a new assignment store.
-  
+
+
+## SYNTAX
+
 ```
-Start-SPAssignment [-AssignmentCollection <SPAssignmentCollection>] [-Global <SwitchParameter>]
+Start-SPAssignment [-AssignmentCollection <SPAssignmentCollection>] [-Global] [<CommonParameters>]
 ```
 
-## Detailed Description
+## DESCRIPTION
+The `Start-SPAssignment` cmdlet properly disposes of objects used with variable assignments.
 
-The **Start-SPAssignment** cmdlet properly disposes of objects used with variable assignments. 
-  
-Large amounts of memory are often required when **SPWeb**, **SPSite**, or **SPSiteAdminsitration** objects are used. So the use of these objects, or lists of these objects, in Microsoft PowerShell scripts requires proper memory management. By default, all **Get** commands dispose of these objects immediately after the pipeline finishes, but by using **SPAssignment**, you can assign the list of objects to a variable and dispose of the objects after they are no longer needed. You can also ensure that the objects remain as long as you need them, even throughout multiple iterations of commands.
-  
+Large amounts of memory are often required when SPWeb, SPSite, or SPSiteAdminsitration objects are used.
+So the use of these objects, or lists of these objects, in Windows PowerShell scripts requires proper memory management.
+By default, all Get commands dispose of these objects immediately after the pipeline finishes, but by using SPAssignment, you can assign the list of objects to a variable and dispose of the objects after they are no longer needed.
+You can also ensure that the objects remain as long as you need them, even throughout multiple iterations of commands.
+
 There are three levels of assignment:
-  
--- **No assignment** — The object is not assigned to a variable and is disposed of after each iteration of the command. 
-  
--- **Simple assignment** — All objects are assigned to the global assignment store. This is done by using the **Global** parameter. When using this level, all objects are assigned to a global store and are disposed of when the **Stop-SPAssignment** cmdlet is called. 
-  
--- **Advanced assignment** — Objects are assigned to named stores for disposal. You can dispose of objects by using the **Identity** parameter with the **Stop-SPAssignment** cmdlet. 
-  
-> [!NOTE]
-> Regardless of the assignment level used, all objects are disposed of when the Microsoft PowerShell run space is closed. 
-  
-For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at [Windows PowerShell for SharePoint Server 2016 reference](https://go.microsoft.com/fwlink/p/?LinkId=671715).
-  
-## Parameters
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> |Manages objects for the purpose of proper disposal. Use of objects, such as **SPWeb** or **SPSite**, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management. Using the **SPAssignment** object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory. When **SPWeb**, **SPSite**, or **SPSiteAdministration** objects are used, the objects are automatically disposed of if an assignment collection or the **Global** parameter is not used.  <br/> > [!NOTE]> When the **Global** parameter is used, all objects are contained in the global store. If objects are not immediately used, or disposed of by using the **Stop-SPAssignment** command, an out-of-memory scenario can occur.           |
-|**Global** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> |If you use this parameter, all objects are assigned to the lifetime of the script and are disposed of when the **Stop-SPAssignment** cmdlet is called.  <br/> If you do not use this parameter, you must assign the output of this cmdlet to a variable and then dispose of objects by using the **Identity** parameter of the **Stop-SPAssignment** cmdlet.  <br/> |
-   
-## AutoGenParams
+-- No assignment -- The object is not assigned to a variable and is disposed of after each iteration of the command.
+-- Simple assignment -- All objects are assigned to the global assignment store. This is done by using the Global parameter. When using this level, all objects are assigned to a global store and are disposed of when the Stop-SPAssignment cmdlet is called.
+-- Advanced assignment -- Objects are assigned to named stores for disposal. You can dispose of objects by using the Identity parameter with the `Stop-SPAssignment` cmdlet.
 
-|**Parameter**|**Required**|**Type**|**Description**|
-|:-----|:-----|:-----|:-----|
-|**AssignmentCollection** <br/> |Optional  <br/> |Microsoft.SharePoint.PowerShell.SPAssignmentCollection  <br/> ||
-|**Global** <br/> |Optional  <br/> |System.Management.Automation.SwitchParameter  <br/> ||
-   
-## Example
+Regardless of the assignment level used, all objects are disposed of when the Windows PowerShell run space is closed.
 
-------------------EXAMPLE 1-----------------------
-  
+For permissions and the most current information about Windows PowerShell for SharePoint Products, see the online documentation at http://go.microsoft.com/fwlink/p/?LinkId=251831 (http://go.microsoft.com/fwlink/p/?LinkId=251831).
+
+## EXAMPLES
+
+### ------------------EXAMPLE 1-----------------------
 ```
-Start-SPAssignment -global
+C:\PS>Start-SPAssignment -global
+
+C:\PS>$w = Get-SPWeb http://MyWeb
+
+C:\PS>$w | Set-SPWeb -title "Accounting"
+
+C:\PS>Stop-SPAssignment -global
 ```
 
+This example uses simple assignment.
+Although it is easier to use simple assignment, it is not a good idea to run commands that iterate through multiple SPSite or SPWeb objects while simple assignment is enabled.
+Ensure that you run `Stop-SPAssignment` before you attempt any iterations of multiple objects.
+
+
+### ------------------EXAMPLE 2-----------------------
 ```
-$w = Get-SPWeb http://MyWeb
+C:\PS>$gc = Start-SPAssignment
+
+C:\PS>$web = $gc | Get-SPWeb http://MyWeb
+
+C:\PS>$web | Set-SPWeb -title "Accounting"
+
+C:\PS>Stop-SPAssignment -Identity $gc
 ```
 
-```
-$w | Set-SPWeb -title "Accounting"
+This example sets the title of the SPWeb object in multiple lines and controls the rate of disposal.
+This is an advanced example.
+Only developers are advised to use it.
+
+
+## PARAMETERS
+
+### -AssignmentCollection
+Manages objects for the purpose of proper disposal.
+Use of objects, such as SPWeb or SPSite, can use large amounts of memory and use of these objects in Windows PowerShell scripts requires proper memory management.
+Using the SPAssignment object, you can assign objects to a variable and dispose of the objects after they are needed to free up memory.
+When SPWeb, SPSite, or SPSiteAdministration objects are used, the objects are automatically disposed of if an assignment collection or the Global parameter is not used.
+
+When the Global parameter is used, all objects are contained in the global store.
+If objects are not immediately used, or disposed of by using the `Stop-SPAssignment` command, an out-of-memory scenario can occur.
+
+```yaml
+Type: SPAssignmentCollection
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
 ```
 
-```
-Stop-SPAssignment -global
+### -Global
+If you use this parameter, all objects are assigned to the lifetime of the script and are disposed of when the `Stop-SPAssignment` cmdlet is called.
+
+If you do not use this parameter, you must assign the output of this cmdlet to a variable and then dispose of objects by using the Identity parameter of the `Stop-SPAssignment` cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
+Applicable: SharePoint Server 2010, SharePoint Server 2013, SharePoint Server 2016
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
 ```
 
-This example uses simple assignment. Although it is easier to use simple assignment, it is not a good idea to run commands that iterate through multiple **SPSite** or **SPWeb** objects while simple assignment is enabled. Ensure that you run **Stop-SPAssignment** before you attempt any iterations of multiple objects. 
-  
-------------------EXAMPLE 2-----------------------
-  
-```
-$gc = Start-SPAssignment
-```
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-```
-$web = $gc | Get-SPWeb http://MyWeb
-```
+## INPUTS
 
-```
-$web | Set-SPWeb -title "Accounting"
-```
+## OUTPUTS
 
-```
-Stop-SPAssignment -Identity $gc
-```
+## NOTES
 
-This example sets the title of the **SPWeb** object in multiple lines and controls the rate of disposal. This is an advanced example. Only developers are advised to use it. 
-  
-## See also
-
-#### 
-
-[Stop-SPAssignment](stop-spassignment.md)
-
+## RELATED LINKS
