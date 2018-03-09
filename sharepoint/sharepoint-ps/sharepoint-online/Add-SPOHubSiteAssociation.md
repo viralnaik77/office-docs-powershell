@@ -1,38 +1,39 @@
 ---
 external help file: 
 applicable: SharePoint Online
-title: Connect-SPOHubSite
+title: Add-SPOHubSiteAssociation
 schema: 2.0.0
 ---
 
-# Connect-SPOHubSite
+# Add-SPOHubSiteAssociation
 
 ## SYNOPSIS
-Connects a site to a hub site.
+Associates a site with a hub site.
 
 ## SYNTAX
 
 ```
-Connect-SPOHubSite [-Site] <SpoSitePipeBind> `
+Add-SPOHubSiteAssociation [-Site] <SpoSitePipeBind> `
 -HubSite <SpoHubSitePipeBind> `
 [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Use this cmdlet to connect a site to a hub site.
+Use this cmdlet to associate a site with a hub site.
 
-If the site or hub site doesn’t exist, this cmdlet returns a “File not found” error.
+> [!IMPORTANT]
+> This cmdlet is currently in preview and is subject to change. It is not currently supported for use in production environments.
 
 ## EXAMPLES
 
 ### Example 1
 
 ```
-Connect-SPOHubSite https://contoso.sharepoint.com/sites/Research `
+Add-SPOHubSiteAssociation https://contoso.sharepoint.com/sites/Research `
 -HubSite https://contoso.sharepoint.com/sites/Marketing 
 ```
 
-This example connects the research site with the marketing hub site.
+This example associates the research site with the marketing hub site.
 
 ## PARAMETERS
 
@@ -78,5 +79,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
+If the site or hub site doesn’t exist, this cmdlet returns a “File not found” error.
+
+If the site is already a hub site, this cmdlet returns a "This site is already a HubSite" error.
 
 ## RELATED LINKS

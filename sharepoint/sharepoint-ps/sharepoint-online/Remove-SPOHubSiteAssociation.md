@@ -1,24 +1,27 @@
 ---
 external help file: 
 applicable: SharePoint Online
-title: Disconnect-SPOHubSite
+title: Remove-SPOHubSiteAssociation
 schema: 2.0.0
 ---
 
-# Disconnect-SPOHubSite
+# Remove-SPOHubSiteAssociation
 
 ## SYNOPSIS
-Disconnects a site from a hub site.
+Removes a site from its associated hub site.
 
 ## SYNTAX
 
 ```
-Disconnect-SPOHubSite [-Site] <SpoSitePipeBind>
+Remove-SPOHubSiteAssociation [-Site] <SpoSitePipeBind>
 [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Use this cmdlet to disconnect a site from a hub site. The site will no longer be associated with the hub site.
+Use this cmdlet to remove an association between a site and a hub site.
+
+> [!IMPORTANT]
+> This cmdlet is currently in preview and is subject to change. It is not currently supported for use in production environments.
 
 If the site or hub site doesn’t exist, this cmdlet returns a “File not found” error.
 
@@ -27,16 +30,16 @@ If the site or hub site doesn’t exist, this cmdlet returns a “File not found
 ### Example 1
 
 ```
-Disconnect-SPOHubSite https://contoso.sharepoint.com/sites/Research
+Remove-SPOHubSiteAssociation https://contoso.sharepoint.com/sites/Research
 ```
 
-This example disconnects the research site from the marketing hub site.
+This example removes the research site from the marketing hub site.
 
 ## PARAMETERS
 
 ### -Site
 
-URL of the site to disconnect from the hub site.
+URL of the site to remove from the hub site.
 
 ```yaml
 Type: SpoSitePipeBind
