@@ -19,7 +19,7 @@ The new team will be backed by a new unified group.
 
 ```
 New-Team -DisplayName <String> [-Description <String>] [-Alias <String>] [-Classification <String>]
- [-AccessType <String>] [-AddCreatorAsMember <Boolean>]
+ [-AccessType <String>] [-AddCreatorAsMember <Boolean>] [-Verbose]
 ```
 
 ## DESCRIPTION
