@@ -68,6 +68,11 @@ To return all uploaded themes, use the **Get-SPOTheme** command with no argument
 Get-SPOTheme
 ```
 
+PS C:\> Get-SPOTheme
+
+Name          Palette                                                                                             IsInverted
+----          -------                                                                                             ----------
+Custom Cyan  {[themeLight, #affefe], [themeTertiary, #76ffff], [black, #000000], [neutralSecondary, #666666]...}      False
 <!--(Commenting out this image because I don't see a way to have images in this location) 
 
 This is an example of the output from this command.
